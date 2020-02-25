@@ -5,6 +5,7 @@ export default async function(message: Discord.Message, client: Discord.Client, 
 	// To get the "message" itself we join the `args` back into a string with spaces:
 	const sayMessage = args.join(" ");
 	
+	
 	const backwds = "zʎxʍʌnʎsɹbdouɯʅʞɾᴉɥƃⅎǝpɔqɐ";
 	// Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
 	message.delete().catch(O_o => {});
