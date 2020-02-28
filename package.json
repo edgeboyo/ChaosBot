@@ -1,0 +1,12 @@
+{
+  "name": "kirkbot",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Our Lord and Saviour Professor Kirk Martinez",
+  "main": "bot.js",
+  "author": "SmartDevil",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "winston": "^3.2.1"
+  }
+}
