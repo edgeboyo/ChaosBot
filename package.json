@@ -1,8 +1,8 @@
 {
-  "name": "kirkbot",
+  "name": "chaosbot",
   "private": true,
   "version": "1.0.0",
-  "description": "Our Lord and Saviour Professor Kirk Martinez",
+  "description": "everything but worse",
   "main": "bot.js",
   "author": "SmartDevil",
   "dependencies": {

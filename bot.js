@@ -17,9 +17,6 @@ client.on("ready", () => {
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
   client.user.setActivity(`Serving ${client.guilds.size} servers`);
-  let main = client.guilds.find(guild => guild.name == "Kirk_Irl");
-  let channel = main.channels.find(channel => channel.name == "general");
-  channel.send("OMG! I'm alive.");
 });
 
 client.on("guildCreate", guild => {
