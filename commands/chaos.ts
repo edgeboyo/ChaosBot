@@ -7,6 +7,7 @@ export default async function(message: Discord.Message, client: Discord.Client, 
 	
 	
 	const backwds = "zʎxʍʌnʎsɹbdouɯʅʞɾᴉɥƃⅎǝpɔqɐ";
+	const backup = "Z⅄XϺɅՈꓕSꓤꝹԀONꟽ⅂ꓘᒋIH⅁ᖵƎᗡϽꓭ∀";
 	// Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
 	message.delete().catch(O_o => {});
 
@@ -17,6 +18,10 @@ export default async function(message: Discord.Message, client: Discord.Client, 
 		if('a' <= ch && ch <= 'z'){
 			var no = ch.charCodeAt(0) - 'a'.charCodeAt(0);
 			ch = backwds[backwds.length - 1 - no];
+		}
+		else if ('A' <= ch && ch <= 'Z'){
+			var no = ch.charCodeAt(0) - 'A'.charCodeAt(0);
+			ch = backup[backup.length - 1 - no];
 		}
 		sendMessg = ch + sendMessg;
 	}
