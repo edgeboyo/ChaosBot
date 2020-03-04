@@ -56,28 +56,37 @@ client.on("message", async message => {
     const sayMessage = args.join(" ");
   
   
-  const backwds = "zʎxʍʌnʇsɹbdouɯʅʞɾᴉɥƃⅎǝpɔqɐ";
-  const backup = "Z⅄XϺɅՈꓕSꓤꝹԀONꟽ⅂ꓘᒋIH⅁ᖵƎᗡϽꓭ∀";
-  // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
-  message.delete().catch(O_o => {});
+    const backwds = "zʎxʍʌnʇsɹbdouɯʅʞɾᴉɥƃⅎǝpɔqɐ";
+    const backup = "Z⅄XϺɅՈꓕSꓤꝹԀONꟽ⅂ꓘᒋIH⅁ᖵƎᗡϽꓭ∀";
+    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
+    message.delete().catch(O_o => {});
 
-  var sendMessg = "";
-  for(var i = 0; i < sayMessage.length; i++){
-    var ch = sayMessage[i];
+    var sendMessg = "";
+    for(var i = 0; i < sayMessage.length; i++){
+      var ch = sayMessage[i];
 
-    if('a' <= ch && ch <= 'z'){
-      var no = ch.charCodeAt(0) - 'a'.charCodeAt(0);
-      ch = backwds[backwds.length - 1 - no];
+      if('a' <= ch && ch <= 'z'){
+        var no = ch.charCodeAt(0) - 'a'.charCodeAt(0);
+        ch = backwds[backwds.length - 1 - no];
+      }
+      else if ('A' <= ch && ch <= 'Z'){
+        var no = ch.charCodeAt(0) - 'A'.charCodeAt(0);
+        ch = backup[backup.length - 1 - no];
+      }
+      sendMessg = ch + sendMessg;
     }
-    else if ('A' <= ch && ch <= 'Z'){
-      var no = ch.charCodeAt(0) - 'A'.charCodeAt(0);
-      ch = backup[backup.length - 1 - no];
+
+    const chan = message.channel;
+
+    let wh = await chan.createWebhook(message.author.username, message.author.displayAvatarURL);
+
+    const hook = new Discord.WebhookClient(wh.id, wh.token);
+
+    hook.send(sendMessg);
+
+    wh.delete();
+    // And we get the bot to say the thing:
     }
-    sendMessg = ch + sendMessg;
-  }
-  // And we get the bot to say the thing:
-  message.channel.send(sendMessg);
-  }
-});
+  });
 
 client.login(config.token);
